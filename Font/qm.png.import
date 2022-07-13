@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/qm.png-8b3ff76d225ae7dd6beea9fc8b5ab600.stex"
+path="res://.import/QM.png-552d39e3441601ed6013aa1f1fb787af.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Font/qm.png"
-dest_files=[ "res://.import/qm.png-8b3ff76d225ae7dd6beea9fc8b5ab600.stex" ]
+source_file="res://Font/QM.png"
+dest_files=[ "res://.import/QM.png-552d39e3441601ed6013aa1f1fb787af.stex" ]
 
 [params]
 

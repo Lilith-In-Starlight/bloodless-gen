@@ -10,20 +10,21 @@ var packs :Dictionary = {}
 
 var current_pack = 0
 var current_card = 0
+var last_path = ""
 
 func _ready() -> void:
 	load_sigils()
 	load_packs()
 	load_cards()
 
-func _process(delta: float) -> void:
-	if Engine.get_frames_drawn() > 3 and current_pack < packs.keys().size():
+func _process(_delta: float) -> void:
+	if Engine.get_frames_drawn() > 4 and current_pack < packs.keys().size():
 		var texture := get_viewport().get_texture().get_data()
 		texture.flip_y()
-		var dir := "user://card_%s.png"
+		var dir := "user://output/%s.png"
 		texture.convert(Image.FORMAT_RGBA8)
 		
-		texture.save_png(dir % Engine.get_frames_drawn())
+		texture.save_png(dir % last_path)
 		
 	if Engine.get_frames_drawn() > 1:
 		if current_pack < packs.keys().size():
@@ -32,6 +33,7 @@ func _process(delta: float) -> void:
 				var card = pack[current_card]
 				$Card.card = card
 				$Card.redraw()
+				last_path = packs.keys()[current_pack] + "/" + card.cname.replace(" ", "")
 				current_card += 1
 			else:
 				current_pack += 1
